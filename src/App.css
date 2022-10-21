@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,76 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Paytone One", sans-serif;
+	/* background-color: #353d48; */
+}
+
+body {
+	background-color: #222831 !important;
+}
+
+.pagesMain {
+	min-height: 65vh !important;
+	background-image: url(../src/ASSETS/IMAGES/bg-img.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	display: block;
+}
+
+footer {
+	padding: 0 13%;
+}
+
+.FooterLink {
+	text-decoration: none !important;
+	color: darkviolet !important;
+	margin-right: 5px;
+}
+
+.pagesText {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #e8e8e8;
+	margin-top: 10px;
+	margin-left: 30%;
+	height: 100px !important;
+	width: 40%;
+	border-radius: 50px;
+}
+
+.pagesH1 {
+	color: rgb(43, 161, 163);
+	text-shadow: 0 0 5px rgb(0, 0, 0);
+	padding-top: 10px;
+}
+
+.btn-signup {
+	background-color: #956446;
+	box-shadow: 0 0 3px 3px #c6845b;
+	transition: 0.5s ease-in-out;
+}
+
+.btn-signup:hover {
+	background-color: #ffab76;
+	box-shadow: 0 0 5px 5px #c6845b;
+}
+
+.btn-login {
+	background-color: #628a46;
+	box-shadow: 0 0 3px 3px #88bd64;
+	transition: 0.5s ease-in-out;
+}
+
+.btn-login:hover {
+	background-color: #75dc31;
+	box-shadow: 0 0 5px 5px #7fbd55;
 }
