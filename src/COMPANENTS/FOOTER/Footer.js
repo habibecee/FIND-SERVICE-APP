@@ -53,21 +53,22 @@ const Footer = (props) => {
 	let Categories_Menu = [];
 
 	if (props.CategoriesState?.initialized === true) {
-		Categories_Menu = props.categoriesState.categories.map((item, index) => {
+		Categories_Menu = props.CategoriesState.categories.map((item, index) => {
 			if (index > 4) {
 				return;
 			}
 
-			Categories_Menu.push({
+			const MenuItem = {
 				title: item.name,
 				link: "/category/" + item.slug,
-			});
+			};
 
-			return Categories_Menu;
+			return MenuItem;
 		});
 	}
-
-	console.log("CATEGORY MENU", Categories_Menu);
+	console.log("CATEGORY MENU 1", Categories_Menu);
+	Categories_Menu = Categories_Menu.slice(0, 5);
+	console.log("CATEGORY MENU 2", Categories_Menu);
 
 	return (
 		<footer
@@ -83,6 +84,7 @@ const Footer = (props) => {
 			>
 				<Link to={"/"}>
 					<img
+						alt=""
 						src={Logo}
 						style={{ width: "100%", height: "100%", borderRadius: "50%" }}
 					/>
@@ -103,7 +105,7 @@ const Footer = (props) => {
 			<FooterMenu
 				title="CATEGORIES"
 				menu={Categories_Menu}
-				loading={!props.ccategoriesState.initialized}
+				loading={!props.categoriesState.initialized}
 			/>
 			<FooterMenu title="BLOGS" menu={Blogs_Menu} />
 		</footer>
@@ -113,7 +115,7 @@ const Footer = (props) => {
 const mapStateToProps = (state) => {
 	console.log("FOOTER MENU PROPS", state);
 	return {
-		ccategoriesState: state.CategoriesState,
+		categoriesState: state.CategoriesState,
 	};
 };
 
