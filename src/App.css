@@ -1,42 +1,3 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 * {
 	margin: 0;
 	padding: 0;
@@ -49,43 +10,7 @@ body {
 	background-color: #222831 !important;
 }
 
-.pagesMain {
-	min-height: 65vh !important;
-	background-image: url(../src/ASSETS/IMAGES/bg-img.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: 100%;
-	display: block;
-}
-
-footer {
-	padding: 0 13%;
-}
-
-.FooterLink {
-	text-decoration: none !important;
-	color: darkviolet !important;
-	margin-right: 5px;
-}
-
-.pagesText {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	background-color: #e8e8e8;
-	margin-top: 10px;
-	margin-left: 30%;
-	height: 100px !important;
-	width: 40%;
-	border-radius: 50px;
-}
-
-.pagesH1 {
-	color: rgb(43, 161, 163);
-	text-shadow: 0 0 5px rgb(0, 0, 0);
-	padding-top: 10px;
-}
+/*HEADER*/
 
 .btn-signup {
 	background-color: #956446;
@@ -107,4 +32,113 @@ footer {
 .btn-login:hover {
 	background-color: #75dc31;
 	box-shadow: 0 0 5px 5px #7fbd55;
+}
+
+/*HEADER FINISH*/
+
+/*GENERAL MAIN*/
+
+.pagesMain {
+	min-height: 65vh !important;
+	background-image: url(../src/ASSETS/IMAGES/bg-img4.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	display: block;
+}
+
+.pagesText {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* background-color: #e8e8e817; */
+	margin-top: 10px;
+	margin-left: 30%;
+	height: 100px !important;
+	width: 40%;
+	border-radius: 50px;
+}
+
+.pagesH1 {
+	color: #00f2ff;
+	text-shadow: 5px -5px 20px #000, -5px 5px 20px #000, 5px 5px 20px #000,
+		-5px -5px 20px #000;
+	padding-top: 10px;
+}
+
+/* GENERAL MAIN FINISH*/
+
+/*FOOTER*/
+
+footer {
+	padding: 0 17%;
+	min-height: fit-content !important;
+}
+
+.FooterLink {
+	text-decoration: none !important;
+	color: darkviolet !important;
+	margin-right: 5px;
+}
+
+/*FOOTER FINISH*/
+
+/*ABOUTUS PAGE */
+.featurette {
+	background-color: #fbf8f16e;
+	border-radius: 10px;
+	box-shadow: 0 0 10px 8px #222831 !important;
+}
+
+/*ABOUTUS PAGE FINISH*/
+
+/*SERVICES PAGE */
+
+.carousel-caption {
+	background-color: rgba(69, 72, 75, 0.498) !important;
+	padding: 10px 30px !important;
+	border-radius: 20px !important;
+}
+
+/*SERVICES PAGE FINISH*/
+
+/*LOGIN PAGE */
+
+.login-btn,
+.submitBtn {
+	background-color: #628a46;
+	box-shadow: 0 0 3px 3px #88bd64;
+	transition: 0.5s ease-in-out;
+	border: none !important;
+}
+
+.login-btn:hover,
+.submitBtn:hover {
+	background-color: #75dc31;
+	box-shadow: 0 0 5px 5px #7fbd55;
+	border: none !important;
+	color: black;
+}
+
+.login-input {
+	box-shadow: 0 0 15px 8px #222831;
+}
+
+.login-text {
+	color: #fff;
+	text-shadow: 2px 2px 3px #000000, -2px -2px 3px #000000;
+}
+
+/*LOGIN PAGE FINISH*/
+
+/* REGISTER PAGE*/
+
+.registerForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	margin-top: 40px;
 }

@@ -1,3 +1,4 @@
+import { connect } from "react-redux";
 import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -8,8 +9,28 @@ import Login from "./PAGES/Login";
 import Services from "./PAGES/Services";
 import Register from "./PAGES/Register";
 import AboutUs from "./PAGES/AboutUs";
+import UseApi from "./HOOKS/UseApi";
+import { SET_CATEGORIES } from "../src/REDUX/Reducers/CategoriesReducer/CategoriesReducer";
 
-function App() {
+const App = (props) => {
+	const Api = UseApi();
+
+	if (props.CategoriesState.initialized === false) {
+		Api.get(
+			"https://api.adoptez1artisan.com/public/categories/listMainCategories"
+		)
+			.then((res) => {
+				console.log("res categories", res);
+				props.dispatch({
+					type: SET_CATEGORIES,
+					payload: {
+						categories: res.data.data,
+					},
+				});
+			})
+			.catch((err) => console.log("categories err", err));
+	}
+
 	return (
 		<BrowserRouter>
 			<Header />
@@ -23,6 +44,13 @@ function App() {
 			<Footer />
 		</BrowserRouter>
 	);
-}
+};
 
-export default App;
+const mapPropsToState = (state) => {
+	console.log("APP STATE PROPS", state);
+	return {
+		...state,
+	};
+};
+
+export default connect(mapPropsToState)(App);

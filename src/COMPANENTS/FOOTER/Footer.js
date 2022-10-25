@@ -2,11 +2,72 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../ASSETS/IMAGES/logo.jpg";
 import FooterMenu from "./companents/FooterMenu";
+import { connect } from "react-redux";
 
 const Footer = (props) => {
+	const AboutUs_Menu = [
+		{
+			title: "Our Team",
+			link: "/aboutus/#our-team",
+		},
+		{
+			title: "Vision",
+			link: "/aboutus/#vision",
+		},
+		{
+			title: "Mission",
+			link: "/aboutus/#mission",
+		},
+		{
+			title: "Contact Us",
+			link: "/aboutus/#contact-us",
+		},
+		{
+			title: "Privacy",
+			link: "/aboutus/#privacy",
+		},
+		{
+			title: "Terms and Conditions",
+			link: "/aboutus/#terms-and-conditions",
+		},
+		{
+			title: "Support",
+			link: "/aboutus/#support",
+		},
+	];
+	const Blogs_Menu = [
+		{
+			title: "Electric-Electronic",
+			link: "/blogs/#electric-elektronic",
+		},
+		{
+			title: "Renovation",
+			link: "/blogs/#renovation",
+		},
+		{
+			title: "Whitewash",
+			link: "/blogs/#whitewash",
+		},
+	];
+
+	let Categories_Menu = [];
+
+	if (props.CategoriesState?.initialized === true) {
+		Categories_Menu = props.categoriesState.categories.map((item) => {
+			Categories_Menu.push({
+				title: item.name,
+				link: "/category/" + item.slug,
+			});
+
+			return Categories_Menu;
+		});
+	}
+
+	console.log("CATEGORY MENU", Categories_Menu);
+
 	return (
 		<footer
-			className="pt-4 pb-4 text-muted text-center text-small d-flex align-items-start justify-content-start"
+			className="pt-3 pb-3 text-muted text-left text-small d-flex align-items-start justify-content-start"
 			style={{ backgroundColor: "#222831" }}
 		>
 			<div
@@ -34,25 +95,22 @@ const Footer = (props) => {
 				<p className="mb-1">© 2022 REACT PROJECT</p>
 			</div>
 
+			<FooterMenu title="ABOUT US" menu={AboutUs_Menu} />
 			<FooterMenu
-				title="ABOUT US"
-				menu={["Our Team", "Vision", "Mision", "Team Feature"]}
+				title="CATEGORIES"
+				menu={Categories_Menu}
+				loading={!props.ccategoriesState.initialized}
 			/>
-			<FooterMenu
-				title="GENERAL"
-				menu={[
-					"Privacy",
-					"Terms and Conditions",
-					"Support",
-					"Stuff For Developers",
-				]}
-			/>
-			<FooterMenu
-				title="SERVICES"
-				menu={["Electric/Electronic", "Repairs", "Renovations"]}
-			/>
+			<FooterMenu title="BLOGS" menu={Blogs_Menu} />
 		</footer>
 	);
 };
 
-export default Footer;
+const mapStateToProps = (state) => {
+	console.log("FOOTER MENU PROPS", state);
+	return {
+		ccategoriesState: state.CategoriesState,
+	};
+};
+
+export default connect(mapStateToProps)(Footer);
