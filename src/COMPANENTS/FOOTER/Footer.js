@@ -53,7 +53,11 @@ const Footer = (props) => {
 	let Categories_Menu = [];
 
 	if (props.CategoriesState?.initialized === true) {
-		Categories_Menu = props.categoriesState.categories.map((item) => {
+		Categories_Menu = props.categoriesState.categories.map((item, index) => {
+			if (index > 4) {
+				return;
+			}
+
 			Categories_Menu.push({
 				title: item.name,
 				link: "/category/" + item.slug,
