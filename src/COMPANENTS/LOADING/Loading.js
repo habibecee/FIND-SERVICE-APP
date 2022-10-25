@@ -3,7 +3,14 @@ import LoadingGif from "../LOADING/Loading.gif";
 
 const Loading = (props) => {
 	return (
-		<div>
+		<div
+			style={{
+				display: "flex",
+				flexDirection: "column",
+				alignItems: "center",
+				justifyContent: "center",
+			}}
+		>
 			<img
 				alt=""
 				src={LoadingGif}

@@ -9,6 +9,7 @@ import Login from "./PAGES/Login";
 import Services from "./PAGES/Services";
 import Register from "./PAGES/Register";
 import AboutUs from "./PAGES/AboutUs";
+import Categories from "./PAGES/CATEGORIES/Categories";
 import UseApi from "./HOOKS/UseApi";
 import { SET_CATEGORIES } from "../src/REDUX/Reducers/CategoriesReducer/CategoriesReducer";
 
@@ -40,6 +41,7 @@ const App = (props) => {
 				<Route path={"/register"} element={<Register />} />
 				<Route path={"/services"} element={<Services />} />
 				<Route path={"/aboutus"} element={<AboutUs />} />
+				<Route path={"/categories"} element={<Categories />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>

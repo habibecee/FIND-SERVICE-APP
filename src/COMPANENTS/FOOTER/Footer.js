@@ -66,9 +66,9 @@ const Footer = (props) => {
 			return MenuItem;
 		});
 	}
-	console.log("CATEGORY MENU 1", Categories_Menu);
+
 	Categories_Menu = Categories_Menu.slice(0, 5);
-	console.log("CATEGORY MENU 2", Categories_Menu);
+	console.log("CATEGORY MENU ", Categories_Menu);
 
 	return (
 		<footer

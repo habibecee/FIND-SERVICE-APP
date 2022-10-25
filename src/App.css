@@ -142,3 +142,26 @@ footer {
 	gap: 20px;
 	margin-top: 40px;
 }
+
+/*REGISTER PAGE FINISH */
+
+/*HOME PAGE*/
+
+.homeCard1 {
+	background-image: url(/src/ASSETS/home-img/1.jpg) !important;
+	background-position: center;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.homeCard2 {
+	background-image: url(/src/ASSETS/home-img/2.jpg) !important;
+	background-position: center;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.homeCard3 {
+	background-image: url(/src/ASSETS/home-img/3.jpg) !important;
+	background-position: center;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
