@@ -6,19 +6,20 @@ const CategoryBox = (props) => {
 	return (
 		<div className="col-md-6">
 			<div
-				className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative "
+				className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative categoryBox"
 				style={{ height: "300px" }}
 			>
 				<div className="col p-4 d-flex flex-column position-static">
-					<strong className="d-inline-block mb-2 text-success">
-						{props.id}
+					<strong className="d-inline-block mb-2 text-dark">
+						{props.created_at}
 					</strong>
-					<h3 className="mb-0">{props.name}</h3>
+					<h3 className="mb-0 text-info categoryBoxName">{props.name}</h3>
 					<div className="mb-1 text-light"></div>
 					<p className="card-text mb-auto">{props.description}</p>
+
 					<a
 						href={props.href}
-						className="stretched-link text-light text-decoration-none"
+						className="stretched-link text-info text-decoration-none categoryBoxDetails "
 					>
 						See Details
 					</a>

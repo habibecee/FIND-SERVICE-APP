@@ -6,6 +6,8 @@ import CategoryBox from "./companents/CategoryBox";
 const Categories = (props) => {
 	const Api = UseApi();
 	const [categories, setCategories] = useState(null);
+	const [pageLength, setPageLength] = useState(5);
+	const [pageStart, setPageStart] = useState(0);
 
 	useEffect(() => {
 		Api.get("/public/categories/listMainCategories")
@@ -24,6 +26,7 @@ const Categories = (props) => {
 				<CategoryBox
 					key={index}
 					id={item.id}
+					created_at={item.created_at}
 					name={item.name}
 					href={`/category'${item.slug}`}
 					description={item.description}

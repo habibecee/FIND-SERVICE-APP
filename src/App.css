@@ -165,3 +165,30 @@ footer {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
+
+/*HOME FINISH */
+
+/*CATEGORY BOX COMPANENT*/
+
+.categoryBox {
+	background-color: #7baefb9f !important;
+	border: none !important;
+	box-shadow: 0 0 10px 10px rgba(57, 53, 53, 0.818) !important;
+	opacity: 0.9 !important ;
+}
+
+.categoryBox:hover {
+	border: none !important;
+	box-shadow: 0 0 10px 10px rgb(47, 45, 45) !important;
+	opacity: 1 !important ;
+}
+
+.categoryBoxDetails:hover {
+	color: green !important;
+}
+
+.categoryBox:hover .categoryBoxName {
+	color: darkblue !important;
+	text-shadow: 0 0 3px #222831, 0 0 3px #fff !important;
+}
+/*CATEGORY BOX COMPANENT FINISH*/
