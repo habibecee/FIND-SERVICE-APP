@@ -17,4 +17,7 @@
 
 <p> This project will be updated </p>
 
+<p> 1. Scroll Bar will be fixed </br>
+2. Categories Page's data doesn't display properly because of Pagination companent. This problem will be fixed </p>
+
 <!-- ![]() </br> -->
