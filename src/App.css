@@ -174,7 +174,7 @@ footer {
 	background-color: #7baefb9f !important;
 	border: none !important;
 	box-shadow: 0 0 10px 10px rgba(57, 53, 53, 0.818) !important;
-	opacity: 0.9 !important ;
+	opacity: 0.7 !important ;
 }
 
 .categoryBox:hover {
@@ -192,3 +192,13 @@ footer {
 	text-shadow: 0 0 3px #222831, 0 0 3px #fff !important;
 }
 /*CATEGORY BOX COMPANENT FINISH*/
+
+/*CATEGORIES START*/
+
+.btnPageNo {
+	border: none !important;
+}
+
+.btnPageNo:hover {
+	color: #00f2ff !important;
+}
