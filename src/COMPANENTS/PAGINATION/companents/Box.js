@@ -14,25 +14,26 @@ const Box = (props) => {
 						{props.created_at}
 					</strong>
 
-					{props.remoteUrl == "/public/blogs/list" ? (
-						<h3 className="mb-0 text-info categoryBoxName">{props.title}</h3>
-					) : (
-						<h3 className="mb-0 text-info categoryBoxName">{props.name}</h3>
-					)}
+					<div className="propTitle">
+						{props.remoteSlug == "/category" ? (
+							<h3 className="mb-0 text-light categoryBoxName">{props.name}</h3>
+						) : (
+							<h3 className="mb-0 text-light categoryBoxName">{props.title}</h3>
+						)}
+					</div>
 
-					<div className="mb-1 text-light"></div>
-
-					{props.remoteUrl == "/public/blogs/list" ? (
-						<p className="card-text mb-auto">{props.content}</p>
-					) : (
-						<p className="card-text mb-auto">{props.description}</p>
-					)}
-
+					<div className="mb-1 text-light propContent">
+						{props.remoteSlug == "/category" ? (
+							<p className="card-text mb-auto">{props.description}</p>
+						) : (
+							<p className="card-text mb-auto">{props.content}</p>
+						)}
+					</div>
 					<a
 						href={props.href}
 						className="stretched-link text-info text-decoration-none categoryBoxDetails "
 					>
-						See Details
+						See More Details
 					</a>
 				</div>
 				<div className="col-auto d-none d-lg-block pt-5 pe-5">

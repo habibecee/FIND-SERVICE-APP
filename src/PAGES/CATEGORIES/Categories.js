@@ -87,6 +87,7 @@ const Categories = (props) => {
 	return (
 		<>
 			<Pagination
+				remoteSlug="/category"
 				remoteUrl="/public/categories/listMainCategories"
 				page="CATEGORIES LIST"
 			/>

@@ -193,7 +193,7 @@ footer {
 }
 /*CATEGORY BOX COMPANENT FINISH*/
 
-/*CATEGORIES START*/
+/*PAGINATION START*/
 
 .btnPageNo {
 	border: none !important;
@@ -202,3 +202,42 @@ footer {
 .btnPageNo:hover {
 	color: #00f2ff !important;
 }
+
+.pageCompanent {
+	width: auto;
+	max-height: 300px !important;
+	padding: 0;
+	overflow-y: auto !important;
+	/* background-color: rgba(24, 132, 215, 0.495); */
+}
+
+.pageCompanent button {
+	color: white;
+	text-align: center;
+}
+
+.propTitle {
+	height: 100px !important;
+}
+
+.propContent {
+	max-height: 100px !important;
+	overflow: hidden;
+}
+/* 
+::-webkit-scrollbar {
+	width: 0.5px;
+}
+::-webkit-scrollbar-track {
+	background: rgba(134, 133, 133, 0.335);
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(35, 52, 244, 0.383);
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(40, 2, 86, 0.464);
+} */
+
+/*PAGINATION START*/

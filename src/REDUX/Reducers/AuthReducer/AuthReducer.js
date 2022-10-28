@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 
-const SET_TOKEN = "SET_TOKEN";
-const REMOVE_TOKEN = "REMOVE_TOKEN";
+export const SET_TOKEN = "SET_TOKEN";
+export const REMOVE_TOKEN = "REMOVE_TOKEN";
 
 const initialState = {
 	token: null,

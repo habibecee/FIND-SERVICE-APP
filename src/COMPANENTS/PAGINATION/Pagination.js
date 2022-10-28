@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import UseApi from "../../HOOKS/UseApi";
-import Box from "./Box";
+import Box from "./companents/Box";
 import Loading from "../LOADING/Loading";
 
 const Pagination = (props) => {
@@ -28,9 +28,11 @@ const Pagination = (props) => {
 					id={item.id}
 					created_at={item.created_at}
 					name={item.name}
-					href={`/category'${item.slug}`}
+					href={`${item.remoteSlug}/${item.slug}`}
 					description={item.description}
 					image={item.image}
+					title={item.title}
+					content={item.content}
 				/>
 			);
 		});
@@ -63,7 +65,7 @@ const Pagination = (props) => {
 			<button
 				key={i}
 				onClick={() => setPageStart(i * pageLength)}
-				className="btn btn-lg me-5 btnPageNo"
+				className="btn btn-sm btnPageNo"
 			>
 				{i + 1}
 			</button>
@@ -71,12 +73,12 @@ const Pagination = (props) => {
 	}
 
 	const lengthSelectCompanent = [];
-	for (let i = 0; i < 9; i++) {
+	for (let i = 0; i < 3; i++) {
 		lengthSelectCompanent.push(
 			<button
 				key={i}
 				onClick={() => setPageLength((i + 1) * 3)}
-				className="btn btn-lg me-5 btnPageNo"
+				className="btn btn-sm btnPageNo"
 			>
 				{(i + 1) * 3}
 			</button>
@@ -88,29 +90,62 @@ const Pagination = (props) => {
 			<div className="pagesText">
 				<h1 className="pagesH1">{props.page}</h1>
 			</div>
-			<div className="d-flex flex-column align-items-center justify-content-center">
-				<div className="d-flex align-items-center justify-content-center me-5">
-					Page Counts: {totalPageCount}
-				</div>
+			<div className="d-flex align-items-center justify-content-end">
+				<div className=" me-5 mb-5">Page Counts: {totalPageCount}</div>
 				&nbsp;
-				<div className="d-flex flex-column align-items-center justify-content-center">
+				{/* <div className="d-flex flex-column align-items-center justify-content-center">
 					<div className="d-flex align-items-center justify-content-center me-5 mb-2">
 						Row:
 					</div>
 					<div className="d-flex align-items-center justify-content-center">
 						{lengthSelectCompanent}
 					</div>
+				</div> */}
+				<div className="dropdown mb-5 p-0" style={{ width: "160px" }}>
+					<button
+						className="btn btn-info dropdown-toggle w-100 p-0"
+						type="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						ROWS
+					</button>
+					<ul
+						className="dropdown-menu dropdown-menu-dark p-0 mt-0"
+						aria-labelledby="dropdownMenuButton"
+					>
+						<li className="dropdown-item d-flex flex-column align-items-center justify-content-center pre-scrollable pageCompanent p-0">
+							{lengthSelectCompanent}
+						</li>
+					</ul>
 				</div>
 				&nbsp;
-				<div className="d-block flex-column align-items-center justify-content-center">
+				{/* <div className="d-block flex-column align-items-center justify-content-center">
 					<div className="d-flex align-items-center justify-content-center me-5">
 						Pages:
 					</div>
-					<div className="d-flex align-items-center justify-content-center">
-						{pageCompanent}
-					</div>
+					<div className="pageCompanent">{pageCompanent}</div>
+				</div> */}
+				<div className="dropdown mb-5 p-0" style={{ width: "160px" }}>
+					<button
+						className="btn btn-info dropdown-toggle w-100 p-0"
+						type="button"
+						data-bs-toggle="dropdown"
+						aria-expanded="false"
+					>
+						PAGES
+					</button>
+					<ul
+						className="dropdown-menu dropdown-menu-dark p-0 mt-0"
+						aria-labelledby="dropdownMenuButton"
+					>
+						<li className="dropdown-item d-flex flex-column align-items-center justify-content-center pre-scrollable pageCompanent p-0">
+							{pageCompanent}
+						</li>
+					</ul>
 				</div>
 			</div>
+
 			<div className="row mb-2">{rowArray}</div>
 		</div>
 	);

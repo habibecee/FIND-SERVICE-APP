@@ -1,10 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
+import UseApi from "../HOOKS/UseApi";
+import { connect } from "react-redux";
+import { SET_TOKEN } from "../../src/REDUX/Reducers/AuthReducer/AuthReducer";
 
 const Login = (props) => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const Api = UseApi();
+
+	const onLoginClick = () => {
+		const postData = {
+			email,
+			password,
+		};
+		console.log(">> POST DATA", postData);
+
+		Api.post("auth/login", postData)
+			.then((response) => {
+				console.log(">> TOKEN", response.data.data.token);
+
+				if (response.data.status === "success") {
+					localStorage.setItem("token", response.data.data.token);
+
+					const action = {
+						type: SET_TOKEN,
+						payload: { token: response.data.data.token },
+					};
+					props.dispatch(action);
+
+					window.location.href = "/";
+
+					setTimeout(() => {
+						window.location.reload();
+					}, 111);
+				} else {
+					alert("Hatalı eposta veya şifre girildi.");
+				}
+			})
+			.catch((err) => {
+				console.log(">> ERR", err);
+				alert(err.response.data.errorMessage);
+			});
+	};
+
 	return (
 		<div className="container px-4 py-5 pagesMain">
 			<div className="pagesText">
 				<h1 className="pagesH1"> LOGIN PAGE </h1>
+			</div>
+			<div className="d-flex align-items-center justify-content-center mt-5 text-center">
+				<p
+					className=""
+					style={{
+						textShadow: "3px -3px 10px #000, -3px 3px 10px #000",
+						color: "#00f2ff",
+					}}
+				>
+					HI! WELCOME TO API TUTORIAL LOG IN PAGE. <br /> PLEASE ENTER YOUR
+					ACCOUNT'S INFORMATION.
+				</p>
 			</div>
 			<div>
 				<div
@@ -28,6 +82,7 @@ const Login = (props) => {
 								type="text"
 								className="form-control login-input"
 								placeholder="you@example.com"
+								onChange={(e) => setEmail(e.target.value)}
 							/>
 						</div>
 					</div>
@@ -42,18 +97,37 @@ const Login = (props) => {
 								type="password"
 								className="form-control login-input"
 								placeholder="Password"
+								onChange={(e) => setPassword(e.target.value)}
 							/>
 						</div>
 					</div>
 				</div>
 				<div style={{ marginLeft: "64%", marginTop: "30px" }} className="">
-					<button type="button" className="loginBtn btn btn-success login-btn">
+					<button
+						type="button"
+						className="loginBtn btn btn-success login-btn"
+						onClick={onLoginClick}
+					>
 						LOG IN
 					</button>
 				</div>
+			</div>
+			<div className="d-flex align-items-center justify-content-center mt-5 text-center">
+				<p>
+					IF YOU DON'T HAVE AN ACCOUNT, <br />
+					<a href="/register"> CLICK HERE TO SIGN UP </a>
+				</p>
 			</div>
 		</div>
 	);
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+	console.log(">>> LOGIN MAP STATE", state);
+
+	return {
+		...state,
+	};
+};
+
+export default connect(mapStateToProps)(Login);
