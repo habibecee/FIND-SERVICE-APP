@@ -39,6 +39,11 @@ const Header = (props) => {
 								About Us
 							</Link>
 						</li>
+						<li>
+							<Link to="/blogs" className="nav-link px-2 text-white">
+								Blogs
+							</Link>
+						</li>
 					</ul>
 
 					<form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

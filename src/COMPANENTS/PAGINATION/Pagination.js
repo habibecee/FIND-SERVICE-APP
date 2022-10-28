@@ -1,28 +1,54 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import UseApi from "../../HOOKS/UseApi";
+import Box from "./Box";
+import Loading from "../LOADING/Loading";
 
 const Pagination = (props) => {
 	const Api = UseApi();
 	const [pageLength, setPageLength] = useState(6);
 	const [pageStart, setPageStart] = useState(0);
 	const [totalPageCount, setTotalPageCount] = useState(0);
-	const [categories, setCategories] = useState(null);
+	const [rows, setRows] = useState(null);
 
 	useEffect(() => {
-		getPages(pageLength, pageStart);
+		getRowsFromApi(pageLength, pageStart);
 	}, []);
 
 	useEffect(() => {
-		getPages(pageLength, pageStart);
+		getRowsFromApi(pageLength, pageStart);
 	}, [pageLength, pageStart]);
 
-	const getPages = (length, start) => {
-		Api.get("/public/categories/listMainCategories", {
+	let rowArray = [];
+
+	if (rows) {
+		rows.map((item, index) => {
+			rowArray.push(
+				<Box
+					key={item.id}
+					id={item.id}
+					created_at={item.created_at}
+					name={item.name}
+					href={`/category'${item.slug}`}
+					description={item.description}
+					image={item.image}
+				/>
+			);
+		});
+	} else {
+		rowArray.push(
+			<div style={{ width: "30%", height: "30%", marginLeft: "35%" }}>
+				<Loading key="0" />
+			</div>
+		);
+	}
+
+	const getRowsFromApi = (length, start) => {
+		Api.get(props.remoteUrl, {
 			params: { length, start },
 		})
 			.then((res) => {
 				console.log("res", res);
-				setCategories(res.data.data);
+				setRows(res.data.data);
 				setTotalPageCount(
 					Math.ceil(parseInt(res.data.recordsTotal) / pageLength)
 				);
@@ -45,7 +71,7 @@ const Pagination = (props) => {
 	}
 
 	const lengthSelectCompanent = [];
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < 9; i++) {
 		lengthSelectCompanent.push(
 			<button
 				key={i}
@@ -58,28 +84,34 @@ const Pagination = (props) => {
 	}
 
 	return (
-		<div className="d-flex flex-column align-items-center justify-content-center">
-			<div className="d-flex align-items-center justify-content-center me-5">
-				Page Counts: {totalPageCount}
+		<div className="container px-4 py-5 pagesMain">
+			<div className="pagesText">
+				<h1 className="pagesH1">{props.page}</h1>
 			</div>
-			&nbsp;
-			<div className="d-flex flex-column align-items-center justify-content-center my-3">
-				<div className="d-flex align-items-center justify-content-center me-5 mb-2">
-					Row:
-				</div>
-				<div className="d-flex align-items-center justify-content-center">
-					{lengthSelectCompanent}
-				</div>
-			</div>
-			&nbsp;
-			<div className="d-block flex-column align-items-center justify-content-center my-3">
+			<div className="d-flex flex-column align-items-center justify-content-center">
 				<div className="d-flex align-items-center justify-content-center me-5">
-					Pages:
+					Page Counts: {totalPageCount}
 				</div>
-				<div className="d-flex align-items-center justify-content-center">
-					{pageCompanent}
+				&nbsp;
+				<div className="d-flex flex-column align-items-center justify-content-center">
+					<div className="d-flex align-items-center justify-content-center me-5 mb-2">
+						Row:
+					</div>
+					<div className="d-flex align-items-center justify-content-center">
+						{lengthSelectCompanent}
+					</div>
+				</div>
+				&nbsp;
+				<div className="d-block flex-column align-items-center justify-content-center">
+					<div className="d-flex align-items-center justify-content-center me-5">
+						Pages:
+					</div>
+					<div className="d-flex align-items-center justify-content-center">
+						{pageCompanent}
+					</div>
 				</div>
 			</div>
+			<div className="row mb-2">{rowArray}</div>
 		</div>
 	);
 };
