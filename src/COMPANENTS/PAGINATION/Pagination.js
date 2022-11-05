@@ -27,7 +27,6 @@ const Pagination = (props) => {
 					key={item.id}
 					id={item.id}
 					created_at={item.created_at}
-					name={item.name}
 					href={`${item.remoteSlug}/${item.slug}`}
 					description={item.description}
 					image={item.image}
