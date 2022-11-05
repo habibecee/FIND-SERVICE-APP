@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-const Box = (props) => {
+const BoxCategoriesPagination = (props) => {
 	console.log("BOX PROPS", props);
 	const Params = useParams();
 	return (
@@ -14,25 +14,13 @@ const Box = (props) => {
 						{props.created_at}
 					</strong>
 
-					{props.remoteSlug === "/category" ? (
-						<div className="propTitle">
-							<h3 className="mb-0 text-light categoryBoxName">{props.name}</h3>
-						</div>
-					) : (
-						<div className="propTitle">
-							<h3 className="mb-0 text-light categoryBoxName">{props.title}</h3>
-						</div>
-					)}
+					<div className="propTitle">
+						<h3 className="mb-0 text-light categoryBoxName">{props.name}</h3>
+					</div>
 
-					{props.remoteSlug === "/category" ? (
-						<div className="mb-1 text-light propContent">
-							<p className="card-text mb-auto">{props.description}</p>
-						</div>
-					) : (
-						<div className="mb-1 text-light propContent">
-							<p className="card-text mb-auto">{props.content}</p>
-						</div>
-					)}
+					<div className="mb-1 text-light propContent">
+						<p className="card-text mb-auto">{props.description}</p>
+					</div>
 
 					<a
 						href={props.href}
@@ -57,4 +45,4 @@ const Box = (props) => {
 	);
 };
 
-export default Box;
+export default BoxCategoriesPagination;

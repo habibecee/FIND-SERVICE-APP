@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 // import Loading from "../../COMPANENTS/LOADING/Loading";
-import Pagination from "../../COMPANENTS/PAGINATION/Pagination";
+import PaginationCategories from "./PAGINATION/PaginationCategories";
 // import UseApi from "../../HOOKS/UseApi";
 // import CategoryBox from "./companents/CategoryBox";
 
@@ -86,8 +86,8 @@ const Categories = (props) => {
 
 	return (
 		<>
-			<Pagination
-				remoteSlug="/category"
+			<PaginationCategories
+				remoteSlug="/categories"
 				remoteUrl="/public/categories/listMainCategories"
 				page="CATEGORIES LIST"
 			/>
