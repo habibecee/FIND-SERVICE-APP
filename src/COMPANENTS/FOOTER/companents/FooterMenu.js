@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Loading from "../../LOADING/Loading";
 
 const FooterMenu = (props) => {
+	const uniqueId =
+		"footerMenu_" + btoa(Math.random().toString()).substring(10, 15);
 	if (props.loading === true) {
 		return (
 			<div className="accordion me-1" id="accordionFlushExample">
@@ -12,7 +14,7 @@ const FooterMenu = (props) => {
 							className="accordion-button collapsed"
 							type="button"
 							data-bs-toggle="collapse"
-							data-bs-target="#flush-collapseOne"
+							data-bs-target={"#" + uniqueId}
 							aria-expanded="false"
 							aria-controls="flush-collapseOne"
 						>
@@ -20,7 +22,7 @@ const FooterMenu = (props) => {
 						</button>
 					</h2>
 					<div
-						id="flush-collapseOne"
+						id={uniqueId}
 						className="accordion-collapse collapse"
 						aria-labelledby="flush-headingOne"
 						data-bs-parent="#accordionFlushExample"
