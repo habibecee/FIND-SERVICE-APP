@@ -15,11 +15,14 @@
 
 <h3> SITE VIEW </h3> </br>
 
-<h5> 1. GENERAL VIEW;  </h5> 
- ![](./src/ASSETS/gifs/proje13-screen1.gif)
+<h5> 1. GENERAL VIEW;  </h5>  </br>
 
-<h5> 2. PAGINATION FEATURE OF BLOG PAGE;   </h5> 
- ![](./src/ASSETS/gifs/proje13-screen2.gif)
+![](./src/ASSETS/gifs/proje13-screen1.gif) </br>
 
-<h5> 3. PAGINATION FEATURE OF CATEGORIES LIST PAGE AND CHANGING HEADER COMPANENT'S VIEW WITH LOGIN; </h5> 
- ![](./src/ASSETS/gifs/proje13-screen3.gif)
+<h5> 2. PAGINATION FEATURE OF BLOG PAGE;   </h5>  </br>
+
+![](./src/ASSETS/gifs/proje13-screen2.gif) </br>
+
+<h5> 3. PAGINATION FEATURE OF CATEGORIES LIST PAGE AND CHANGING HEADER COMPANENT'S VIEW WITH LOGIN; </h5>  </br>
+
+![](./src/ASSETS/gifs/proje13-screen3.gif) </br>
