@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import UseApi from "../HOOKS/UseApi";
 import { connect } from "react-redux";
 import { SET_TOKEN } from "../../src/REDUX/Reducers/AuthReducer/AuthReducer";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
+	const navigate = useNavigate();
+	const api = UseApi();
+	console.log(">>> LOGIN PAGE PROPS", props);
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const Api = UseApi();
 
 	const onLoginClick = () => {
 		const postData = {
@@ -15,8 +19,10 @@ const Login = (props) => {
 		};
 		console.log(">> POST DATA", postData);
 
-		Api.post("auth/login", postData)
+		api
+			.post("auth/login", postData)
 			.then((response) => {
+				console.log(">> RES", response);
 				console.log(">> TOKEN", response.data.data.token);
 
 				if (response.data.status === "success") {
@@ -28,11 +34,11 @@ const Login = (props) => {
 					};
 					props.dispatch(action);
 
-					window.location.href = "/";
+					navigate("/");
 
 					setTimeout(() => {
 						window.location.reload();
-					}, 111);
+					}, 71);
 				} else {
 					alert("Hatalı eposta veya şifre girildi.");
 				}

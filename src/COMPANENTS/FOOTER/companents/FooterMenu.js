@@ -57,7 +57,7 @@ const FooterMenu = (props) => {
 	});
 
 	return (
-		<div className="accordion me-1" id="accordionFlushExample">
+		<div className="accordion me-1 w-25" id="accordionFlushExample">
 			<div className="accordion-item bg-dark">
 				<h2 className="accordion-header" id="flush-headingOne">
 					<button

@@ -15,9 +15,11 @@
 
 <h3> SITE VIEW </h3> </br>
 
-<p> This project will be updated </p>
+<h5> 1. GENERAL VIEW;  </h5> </br>
+![](./src//ASSETS/GIFS/proje13-screen1.gif) </br>
 
-<p> 1. Scroll Bar will be fixed </br>
-2. Categories Page's data doesn't display properly because of Pagination companent. This problem will be fixed </p>
+<h5> 2. PAGINATION FEATURE OF BLOG PAGE;   </h5> </br>
+![](./src//ASSETS/GIFS/proje13-screen2.gif) </br>
 
-<!-- ![]() </br> -->
+<h5> 3. PAGINATION FEATURE OF CATEGORIES LIST PAGE AND CHANGING HEADER COMPANENT'S VIEW WITH LOGIN; </h5> </br>
+![](./src//ASSETS/GIFS/proje13-screen3.gif) </br>

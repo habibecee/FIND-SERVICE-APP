@@ -89,7 +89,10 @@ const Pagination = (props) => {
 			<div className="pagesText">
 				<h1 className="pagesH1">{props.page}</h1>
 			</div>
-			<div className="d-flex align-items-center justify-content-end">
+			<div
+				className="d-flex align-items-center justify-content-end"
+				key={props.id}
+			>
 				<div className=" me-5 mb-5">Page Counts: {totalPageCount}</div>
 				&nbsp;
 				{/* <div className="d-flex flex-column align-items-center justify-content-center">
@@ -138,7 +141,7 @@ const Pagination = (props) => {
 						className="dropdown-menu dropdown-menu-dark p-0 mt-0"
 						aria-labelledby="dropdownMenuButton"
 					>
-						<li className="dropdown-item d-flex flex-column align-items-center justify-content-center pre-scrollable pageCompanent p-0">
+						<li className="dropdown-item d-flex flex-column align-items-center pre-scrollable pageCompanent p-0">
 							{pageCompanent}
 						</li>
 					</ul>

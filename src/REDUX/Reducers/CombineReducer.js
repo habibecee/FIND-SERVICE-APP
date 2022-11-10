@@ -3,12 +3,10 @@ import AuthReducer from "./AuthReducer/AuthReducer";
 import AppDataReducer from "./AppDataReducer/AppDataReducer";
 import CategoriesReducer from "./CategoriesReducer/CategoriesReducer";
 
-const ReducersContainer = {
+const CombineReducer = combineReducers({
 	AuthState: AuthReducer,
 	AppDataState: AppDataReducer,
 	CategoriesState: CategoriesReducer,
-};
-
-const CombineReducer = combineReducers(ReducersContainer);
+});
 
 export default CombineReducer;

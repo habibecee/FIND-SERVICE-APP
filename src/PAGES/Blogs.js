@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Pagination from "../COMPANENTS/PAGINATION/Pagination";
+import Pagination from "../COMPANENTS/BLOGS PAGE PAGINATION/Pagination";
 
 const Blogs = (props) => {
 	return (

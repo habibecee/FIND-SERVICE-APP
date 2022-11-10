@@ -5,7 +5,6 @@ import FooterMenu from "./companents/FooterMenu";
 import { connect } from "react-redux";
 
 const Footer = (props) => {
-	console.log("PROPSSS", props);
 	const AboutUs_Menu = [
 		{
 			title: "Our Team",
@@ -69,7 +68,7 @@ const Footer = (props) => {
 	}
 
 	Categories_Menu = Categories_Menu.slice(0, 5);
-	console.log("CATEGORY MENU ", Categories_Menu);
+	// console.log("CATEGORY MENU ", Categories_Menu);
 
 	return (
 		<footer
@@ -114,7 +113,6 @@ const Footer = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	console.log("FOOTER MENU PROPS", state);
 	return {
 		categoriesState: state.CategoriesState,
 	};

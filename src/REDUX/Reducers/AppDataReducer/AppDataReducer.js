@@ -1,7 +1,5 @@
-import { createStore } from "redux";
-
-const SET_APP_DATA = "SET_APP_DATA";
-const REMOVE_APP_DATA = "REMOVE_APP_DATA";
+export const SET_APP_DATA = "SET_APP_DATA";
+export const REMOVE_APP_DATA = "REMOVE_APP_DATA";
 
 const initialState = {
 	appData: null,

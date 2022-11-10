@@ -1,10 +1,28 @@
-import { createStore } from "redux";
+const localStorageToken = localStorage.getItem("token");
+
+const initialState = {
+	token: localStorageToken,
+};
 
 export const SET_TOKEN = "SET_TOKEN";
 export const REMOVE_TOKEN = "REMOVE_TOKEN";
 
-const initialState = {
-	token: null,
+export const setToken = (dispatch, value) => {
+	dispatch({
+		type: "set_token",
+		payload: {
+			token: value,
+		},
+	});
+};
+
+export const setUsername = (dispatch, username) => {
+	dispatch({
+		type: "set_token",
+		payload: {
+			username: username,
+		},
+	});
 };
 
 const AuthReducer = (state = initialState, action) => {
