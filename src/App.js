@@ -16,9 +16,20 @@ import { SET_CATEGORIES } from "../src/REDUX/Reducers/CategoriesReducer/Categori
 import { SET_APP_DATA } from "./REDUX/Reducers/AppDataReducer/AppDataReducer";
 import { REMOVE_APP_DATA } from "./REDUX/Reducers/AppDataReducer/AppDataReducer";
 import { REMOVE_TOKEN } from "./REDUX/Reducers/AuthReducer/AuthReducer";
+import { AbilityContext } from "./ABILITY/can";
+import ability from "./ABILITY/ability";
+import Dashboard from "./PAGES/admin/dashboard/dashboard";
 
 const App = (props) => {
+	console.log(" APP JS PROPS ", props);
+
 	const Api = UseApi();
+
+	//clientAbility değeri tamamlanacak!!!
+
+	const clientAbility = props.AppDataState.appData
+		? ability(props.AppDataState.appData)
+		: ability(null);
 
 	if (props.AuthState.token && !props.AppDataState.appData) {
 		Api.get("user/appData")
@@ -79,19 +90,22 @@ const App = (props) => {
 	}
 
 	return (
-		<BrowserRouter>
-			<Header />
-			<Routes>
-				<Route path={"/"} element={<Home />} />
-				<Route path={"/login"} element={<Login />} />
-				<Route path={"/register"} element={<Register />} />
-				<Route path={"/services"} element={<Services />} />
-				<Route path={"/aboutus"} element={<AboutUs />} />
-				<Route path={"/blogs"} element={<Blogs />} />
-				<Route path={"/categories"} element={<Categories />} />
-			</Routes>
-			<Footer />
-		</BrowserRouter>
+		<AbilityContext.Provider value={clientAbility}>
+			<BrowserRouter>
+				<Header />
+				<Routes>
+					<Route path={"/"} element={<Home />} />
+					<Route path={"/login"} element={<Login />} />
+					<Route path={"/register"} element={<Register />} />
+					<Route path={"/services"} element={<Services />} />
+					<Route path={"/aboutus"} element={<AboutUs />} />
+					<Route path={"/blogs"} element={<Blogs />} />
+					<Route path={"/categories"} element={<Categories />} />
+					<Route path={"/admin/dashboard"} element={<Dashboard />} />
+				</Routes>
+				<Footer />
+			</BrowserRouter>
+		</AbilityContext.Provider>
 	);
 };
 

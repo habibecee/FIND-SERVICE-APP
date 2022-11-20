@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { Can } from "../ABILITY/can";
 import Logo from "../ASSETS/IMAGES/logo.jpg";
 import UseApi from "../HOOKS/UseApi";
 
@@ -84,6 +85,18 @@ const Header = (props) => {
 									{props.AppDataState.appData.user.fullname}
 								</strong>
 							</button>
+
+							<Can I="manage" a="all">
+								<button className="btn btn-signup me-4">
+									<a
+										href="/admin/dashboard"
+										style={{ textDecoration: "none", color: "black" }}
+									>
+										ADMIN
+									</a>
+								</button>
+							</Can>
+
 							<button
 								type="button"
 								className="btn btn-signup "
