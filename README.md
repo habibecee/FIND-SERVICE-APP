@@ -26,3 +26,7 @@
 <h5> 3. PAGINATION FEATURE OF CATEGORIES LIST PAGE AND CHANGING HEADER COMPANENT'S VIEW WITH LOGIN; </h5>  </br>
 
 ![](./src/ASSETS/gifs/proje13-screen3.gif) </br>
+
+<h5> 4. CASL-ABILITY IS ADDED; </h5>  </br>
+
+![](./src/ASSETS/gifs/screen4.gif) </br>
